@@ -1,5 +1,5 @@
 //
-//  HistoryTableViewCell.swift
+//  CardTableViewCell.swift
 //  MonPay
 //
 //  Created by Teodor on 05/12/2016.
@@ -8,17 +8,14 @@
 
 import UIKit
 
-class HistoryTableViewCell: UITableViewCell {
+class CardTableViewCell: UITableViewCell {
 
-    @IBOutlet var profilePicture: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var amountLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var cardLogo: UIImageView!
+    @IBOutlet var cardNumber: UILabel!
+    @IBOutlet var cardExpirationDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
-        self.profilePicture.clipsToBounds = true
         let selectedView = UIView(frame: self.bounds)
         selectedView.backgroundColor = UIColor(red: 21/255.0, green: 36/255.0, blue: 51/255.0, alpha: 1.0)
         self.selectedBackgroundView = selectedView

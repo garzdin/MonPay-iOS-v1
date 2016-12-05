@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Money
 
 class HistoryTableViewController: UITableViewController {
     
-    var items: [String] = []
+    var items: [Int] = []
     var names: [String] = []
 
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         cell.profilePicture.image = UIImage(named: "Profile")
         cell.nameLabel.text = names[indexPath.row]
-        cell.amountLabel.text = items[indexPath.row]
+        cell.amountLabel.text = "\(Money(integerLiteral: items[indexPath.row]))"
         cell.dateLabel.text = "05/12/2016"
         return cell
     }
@@ -100,7 +101,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func fetchData() {
-        self.items = ["1000DKK", "800DKK", "100DKK", "1200DKK"]
+        self.items = [1000, 800, 100, 1200]
         self.names = ["John Doe", "Jane Doe", "Ben Afleck", "Harry Cavill"]
         self.tableView.reloadData()
     }
