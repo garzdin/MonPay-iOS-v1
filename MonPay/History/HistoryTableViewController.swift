@@ -101,7 +101,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func fetchData() {
-        self.items = [1000, 800, 100, 1200]
+        self.items = [-1000, 800, 100, 1200]
         self.names = ["John Doe", "Jane Doe", "Ben Afleck", "Harry Cavill"]
         self.tableView.reloadData()
     }
