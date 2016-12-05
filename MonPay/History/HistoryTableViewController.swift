@@ -37,7 +37,6 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(items.count)
         return items.count
     }
 
@@ -46,6 +45,7 @@ class HistoryTableViewController: UITableViewController {
         cell.profilePicture.image = UIImage(named: "Profile")
         cell.nameLabel.text = names[indexPath.row]
         cell.amountLabel.text = items[indexPath.row]
+        cell.dateLabel.text = "05/12/2016"
         return cell
     }
 

@@ -248,12 +248,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOE-Ca-coL">
-                                            <rect key="frame" x="321" y="42" width="63" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                                            <color key="textColor" red="0.28235294117647058" green="0.81176470588235294" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-vw-A0v">
                                             <rect key="frame" x="30" y="15" width="60" height="90"/>
                                             <subviews>
@@ -282,15 +276,31 @@
                                                 <constraint firstAttribute="bottom" secondItem="KBa-uA-kFF" secondAttribute="bottom" id="y5M-SK-uCn"/>
                                             </constraints>
                                         </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HHi-Ea-N81">
+                                            <rect key="frame" x="321" y="42" width="63" height="36"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOE-Ca-coL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="63" height="21.666666666666664"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                                    <color key="textColor" red="0.28235294117647058" green="0.81176470588235294" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-5w-uJb">
+                                                    <rect key="frame" x="0.0" y="21.666666666666664" width="63" height="14.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.098039215686274508" green="0.17254901960784313" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="TOE-Ca-coL" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="topMargin" constant="34" id="5Yi-uX-0f6"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HHi-Ea-N81" secondAttribute="trailing" constant="22" id="Cz4-n7-hpF"/>
                                         <constraint firstItem="u3r-vw-A0v" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="top" constant="15" id="DWU-w4-xGt"/>
+                                        <constraint firstItem="HHi-Ea-N81" firstAttribute="centerY" secondItem="tQA-H0-W80" secondAttribute="centerY" id="EQz-Cn-tJA"/>
                                         <constraint firstAttribute="bottom" secondItem="u3r-vw-A0v" secondAttribute="bottom" constant="15" id="hcv-7j-pV4"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TOE-Ca-coL" secondAttribute="trailing" constant="22" id="lr2-Yf-IKz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TOE-Ca-coL" secondAttribute="bottom" constant="34" id="quS-1A-ovb"/>
                                         <constraint firstItem="u3r-vw-A0v" firstAttribute="leading" secondItem="tQA-H0-W80" secondAttribute="leadingMargin" constant="22" id="xIL-pC-zFJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -298,6 +308,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="amountLabel" destination="TOE-Ca-coL" id="W1M-cA-wv0"/>
+                                    <outlet property="dateLabel" destination="hKz-5w-uJb" id="7es-0R-DDd"/>
                                     <outlet property="nameLabel" destination="KBa-uA-kFF" id="jur-n6-5pT"/>
                                     <outlet property="profilePicture" destination="GJf-uQ-t6W" id="bnf-T6-4na"/>
                                     <segue destination="GP8-bu-OWK" kind="show" id="Stq-v5-sVu"/>
