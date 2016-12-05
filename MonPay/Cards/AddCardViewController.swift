@@ -8,12 +8,28 @@
 
 import UIKit
 
-class AddCardViewController: UIViewController {
+class AddCardViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var cardName: LoginTextField!
-    @IBOutlet var cardNumber: LoginTextField!
-    @IBOutlet var cardExpirationDate: LoginTextField!
-    @IBOutlet var cardCVV: LoginTextField!
+    @IBOutlet var cardName: LoginTextField! {
+        didSet {
+            cardName.delegate = self
+        }
+    }
+    @IBOutlet var cardNumber: LoginTextField! {
+        didSet {
+            cardNumber.delegate = self
+        }
+    }
+    @IBOutlet var cardExpirationDate: LoginTextField! {
+        didSet {
+            cardExpirationDate.delegate = self
+        }
+    }
+    @IBOutlet var cardCVV: LoginTextField! {
+        didSet {
+            cardCVV.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +45,13 @@ class AddCardViewController: UIViewController {
     func cancelAddCard(sender: UIBarButtonItem) {
         print("Add card")
         performSegue(withIdentifier: "addCard", sender: sender)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if (textField == cardName) {
+            cardNumber.becomeFirstResponder()
+        }
+        return false
     }
 }
