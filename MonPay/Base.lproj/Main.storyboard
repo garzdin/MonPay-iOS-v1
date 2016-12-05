@@ -235,27 +235,27 @@
         <scene sceneID="CCM-Lg-SsD">
             <objects>
                 <tableViewController id="aNK-J5-cdI" customClass="HistoryTableViewController" customModule="MonPay" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="LrL-R5-BA1">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="LrL-R5-BA1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.17254901960784313" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="150" id="Eeh-y6-t8v" customClass="HistoryTableViewCell" customModule="MonPay" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="150"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="120" id="Eeh-y6-t8v" customClass="HistoryTableViewCell" customModule="MonPay" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eeh-y6-t8v" id="tQA-H0-W80">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOE-Ca-coL">
-                                            <rect key="frame" x="321" y="57" width="63" height="36"/>
+                                            <rect key="frame" x="321" y="42" width="63" height="36"/>
                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                             <color key="textColor" red="0.28235294117647058" green="0.81176470588235294" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-vw-A0v">
-                                            <rect key="frame" x="30" y="30" width="60" height="90"/>
+                                            <rect key="frame" x="30" y="15" width="60" height="90"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GJf-uQ-t6W">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -286,11 +286,11 @@
                                     <color key="backgroundColor" red="0.098039215686274508" green="0.17254901960784313" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="TOE-Ca-coL" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="topMargin" constant="49" id="5Yi-uX-0f6"/>
-                                        <constraint firstItem="u3r-vw-A0v" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="top" constant="30" id="DWU-w4-xGt"/>
-                                        <constraint firstAttribute="bottom" secondItem="u3r-vw-A0v" secondAttribute="bottom" constant="30" id="hcv-7j-pV4"/>
+                                        <constraint firstItem="TOE-Ca-coL" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="topMargin" constant="34" id="5Yi-uX-0f6"/>
+                                        <constraint firstItem="u3r-vw-A0v" firstAttribute="top" secondItem="tQA-H0-W80" secondAttribute="top" constant="15" id="DWU-w4-xGt"/>
+                                        <constraint firstAttribute="bottom" secondItem="u3r-vw-A0v" secondAttribute="bottom" constant="15" id="hcv-7j-pV4"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="TOE-Ca-coL" secondAttribute="trailing" constant="22" id="lr2-Yf-IKz"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TOE-Ca-coL" secondAttribute="bottom" constant="49" id="quS-1A-ovb"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="TOE-Ca-coL" secondAttribute="bottom" constant="34" id="quS-1A-ovb"/>
                                         <constraint firstItem="u3r-vw-A0v" firstAttribute="leading" secondItem="tQA-H0-W80" secondAttribute="leadingMargin" constant="22" id="xIL-pC-zFJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
