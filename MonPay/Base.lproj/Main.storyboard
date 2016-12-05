@@ -152,10 +152,11 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZB-9t-8Vm">
-                                <rect key="frame" x="257" y="405.66666666666669" width="115" height="20"/>
+                                <rect key="frame" x="264" y="405.66666666666669" width="108" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="UO2-Kb-xkp"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <state key="normal" title="Forgot password">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -310,6 +311,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="ptH-ND-CZF"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HOu-QB-459">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle">
                             <fragment content="Refreshing History">
