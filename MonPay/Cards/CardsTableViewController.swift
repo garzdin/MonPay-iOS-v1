@@ -101,5 +101,7 @@ class CardsTableViewController: UITableViewController {
     @IBAction func dismissCardsVC(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func cancelAddCard(segue: UIStoryboardSegue) {}
 
 }

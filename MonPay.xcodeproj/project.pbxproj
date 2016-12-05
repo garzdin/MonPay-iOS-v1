@@ -23,6 +23,7 @@
 		49B5F7B71DF4D1B70016CE6D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7B61DF4D1B70016CE6D /* AccountViewController.swift */; };
 		49C7DD901DF576D600DA1F6E /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C7DD8F1DF576D600DA1F6E /* HistoryTableViewController.swift */; };
 		49C7DD921DF57B2900DA1F6E /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C7DD911DF57B2900DA1F6E /* HistoryTableViewCell.swift */; };
+		49E3EA4F1DF603CB009C75EC /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3EA4E1DF603CB009C75EC /* AddCardViewController.swift */; };
 		70320B9CF7C4EF2CFEF89F85 /* Pods_MonPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E25786AE9E2A472FE2B27D /* Pods_MonPay.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		49B5F7B61DF4D1B70016CE6D /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		49C7DD8F1DF576D600DA1F6E /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = History/HistoryTableViewController.swift; sourceTree = "<group>"; };
 		49C7DD911DF57B2900DA1F6E /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = History/HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		49E3EA4E1DF603CB009C75EC /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCardViewController.swift; path = Cards/AddCardViewController.swift; sourceTree = "<group>"; };
 		A3E25786AE9E2A472FE2B27D /* Pods_MonPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED1DB52378EDDE6919E7755 /* Pods-MonPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonPay/Pods-MonPay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			children = (
 				497577081DF5EFBE00B68C7B /* CardsTableViewController.swift */,
 				4975770B1DF5F32F00B68C7B /* CardTableViewCell.swift */,
+				49E3EA4E1DF603CB009C75EC /* AddCardViewController.swift */,
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E3EA4F1DF603CB009C75EC /* AddCardViewController.swift in Sources */,
 				49B5F7B51DF4C5DC0016CE6D /* LoginViewController.swift in Sources */,
 				492C23171DF55EC100255BA8 /* TransferStepTwoViewController.swift in Sources */,
 				49B5F7B71DF4D1B70016CE6D /* AccountViewController.swift in Sources */,
