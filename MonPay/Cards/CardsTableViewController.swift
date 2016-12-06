@@ -98,10 +98,6 @@ class CardsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
-    @IBAction func dismissCardsVC(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelAddCard(segue: UIStoryboardSegue) {}
+    @IBAction func addCard(segue: UIStoryboardSegue) {}
 
 }

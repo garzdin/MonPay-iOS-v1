@@ -21,10 +21,4 @@ class AccountViewController: UIViewController {
     @IBAction func logoutAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBAction func cardsAction(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "cardsNavigationController") as! UINavigationController
-        self.present(controller, animated: true, completion: nil)
-    }
 }

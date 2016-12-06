@@ -350,11 +350,6 @@
                         <color key="backgroundColor" red="0.098039215686274508" green="0.17254901960784313" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Account" id="r06-Zy-Apq">
-                        <barButtonItem key="leftBarButtonItem" title="Cards" id="P0K-TR-S5h">
-                            <connections>
-                                <action selector="cardsAction:" destination="G9L-CC-LwK" id="FAa-hy-At8"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="fYQ-cP-ZmI">
                             <connections>
                                 <action selector="logoutAction:" destination="G9L-CC-LwK" id="ODH-hF-fC0"/>
@@ -441,11 +436,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cards" id="Eb4-ao-YdH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Spq-VF-1bb">
-                            <connections>
-                                <action selector="dismissCardsVC:" destination="6t1-Tg-aPC" id="qY0-L2-caP"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FTs-Hw-xOg">
                             <connections>
                                 <segue destination="x5G-0k-bYA" kind="show" id="SHe-Jh-GZM"/>
@@ -455,7 +445,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEb-nV-TJY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5269.5652173913049" y="592.66304347826087"/>
+            <point key="canvasLocation" x="5270" y="-196"/>
         </scene>
         <!--Card Details-->
         <scene sceneID="sVi-5g-foA">
@@ -473,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2B8-tB-LtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5270" y="1360"/>
+            <point key="canvasLocation" x="5270" y="593"/>
         </scene>
         <!--Add Card-->
         <scene sceneID="n73-k8-1Ic">
@@ -583,13 +573,13 @@
                         <outlet property="cardExpirationDate" destination="7xQ-As-pTX" id="NSd-Vh-dTI"/>
                         <outlet property="cardName" destination="OPs-hv-3o6" id="GMd-Lx-fmr"/>
                         <outlet property="cardNumber" destination="gQ9-B6-OXS" id="ZrY-eR-h5C"/>
-                        <segue destination="wZJ-Bq-8u4" kind="unwind" identifier="addCard" unwindAction="cancelAddCardWithSegue:" id="qKP-P4-ZKO"/>
+                        <segue destination="wZJ-Bq-8u4" kind="unwind" identifier="addCard" unwindAction="addCardWithSegue:" id="qKP-P4-ZKO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uw-wK-6MM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wZJ-Bq-8u4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6324.6376811594209" y="592.66304347826087"/>
+            <point key="canvasLocation" x="6348" y="593"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -613,6 +603,7 @@
                     <connections>
                         <segue destination="d5f-Uw-9xP" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Txu-1g-WiX" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="eOH-Hq-gwK" kind="relationship" relationship="viewControllers" id="mdb-8H-Ij2"/>
                         <segue destination="nPR-Oo-DCv" kind="relationship" relationship="viewControllers" id="ZFh-HM-DPR"/>
                     </connections>
                 </tabBarController>
@@ -724,7 +715,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgT-ZL-5uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="-34"/>
+            <point key="canvasLocation" x="-3" y="-196"/>
         </scene>
         <!--Account Creation View Controller-->
         <scene sceneID="72k-UT-qFs">
@@ -870,7 +861,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phr-gs-RB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-914" y="-34"/>
+            <point key="canvasLocation" x="-1071" y="-196"/>
         </scene>
         <!--History-->
         <scene sceneID="o9c-zR-6sT">
@@ -1008,11 +999,11 @@
             </objects>
             <point key="canvasLocation" x="2019" y="2093"/>
         </scene>
-        <!--Account-->
+        <!--Cards-->
         <scene sceneID="Nsc-k3-dQs">
             <objects>
                 <navigationController storyboardIdentifier="cardsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="eOH-Hq-gwK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="Account" id="HxK-BN-SSM"/>
+                    <tabBarItem key="tabBarItem" title="Cards" image="Card" id="HxK-BN-SSM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="91W-7q-zCP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1030,11 +1021,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJI-oP-joq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5270" y="-196"/>
+            <point key="canvasLocation" x="5270" y="-926"/>
         </scene>
     </scenes>
     <resources>
         <image name="Account" width="26" height="25"/>
+        <image name="Card" width="26" height="19"/>
         <image name="History" width="25" height="25"/>
         <image name="Transfer" width="25" height="25"/>
     </resources>
