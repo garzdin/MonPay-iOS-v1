@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import Money
 
 class TransferStepTwoViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate {
     
     var users: [String] = []
+    var usersStore: [String] = []
 
     @IBOutlet var beneficiarySearchField: LoginTextField!
     @IBOutlet var beneficiariesCollectionView: UICollectionView!
+    @IBOutlet var recenBeneficiariesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Beneficiery"
         let continueButton = UIBarButtonItem(title: "Continue", style: .plain, target: self, action: #selector(goToStepThree(sender:)))
         self.navigationItem.setRightBarButton(continueButton, animated: true)
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.beneficiariesCollectionView.delegate = self
         self.beneficiariesCollectionView.dataSource = self
         getData()
@@ -59,15 +63,31 @@ class TransferStepTwoViewController: UIViewController, UICollectionViewDataSourc
             }
         }
         let cell = collectionView.cellForItem(at: indexPath) as! BeneficiaryCollectionViewCell
-        cell.beneficiarySelected = true
+        cell.beneficiarySelected = !cell.beneficiarySelected
         DispatchQueue.main.async {
             cell.beneficiarySelectedView.isHidden = !cell.beneficiarySelectedView.isHidden
             cell.beneficiarySelectedCheckmark.isHidden = !cell.beneficiarySelectedCheckmark.isHidden
+        }
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "transferStepThree") {
+            if let destinationVC = segue.destination as? TransferStepThreeViewController {
+                for cell in beneficiariesCollectionView.visibleCells as! [BeneficiaryCollectionViewCell] {
+                    if (cell.beneficiarySelected == true) {
+                        destinationVC.image = cell.beneficiaryProfilePicture.image
+                        destinationVC.name = cell.beneficiaryNameLabel.text
+                        destinationVC.amount = 1000
+                    }
+                }
+            }
         }
     }
     
     func getData() {
         self.users = ["John Doe", "Jane Doe", "Mark Whalberg", "Ben Afleck"]
+        self.usersStore = self.users
         self.beneficiariesCollectionView.reloadData()
     }
     
@@ -75,7 +95,28 @@ class TransferStepTwoViewController: UIViewController, UICollectionViewDataSourc
         if (textField == beneficiarySearchField) {
             textField.resignFirstResponder()
         }
-        print(textField.text)
         return false
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        if (textField == beneficiarySearchField) {
+            if (!newText.isEmpty) {
+                self.recenBeneficiariesLabel.text = "Search results"
+                var filterd: [String] = []
+                for user in self.users {
+                    if (user.lowercased().range(of: (newText.lowercased())) != nil) {
+                        filterd.append(user)
+                    }
+                }
+                users = filterd
+                self.beneficiariesCollectionView.reloadData()
+            } else {
+                self.recenBeneficiariesLabel.text = "Recent beneficiaries"
+                self.users = self.usersStore
+                self.beneficiariesCollectionView.reloadData()
+            }
+        }
+        return true
     }
 }

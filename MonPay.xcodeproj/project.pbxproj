@@ -17,6 +17,8 @@
 		497577091DF5EFBE00B68C7B /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497577081DF5EFBE00B68C7B /* CardsTableViewController.swift */; };
 		4975770C1DF5F32F00B68C7B /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975770B1DF5F32F00B68C7B /* CardTableViewCell.swift */; };
 		49A267261DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */; };
+		49A2672B1DF6EEAA002F397C /* DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2672A1DF6EEAA002F397C /* DismissKeyboard.swift */; };
+		49A2672D1DF6F580002F397C /* TransferCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2672C1DF6F580002F397C /* TransferCompletedViewController.swift */; };
 		49B5F7AD1DF4BF420016CE6D /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7AC1DF4BF420016CE6D /* LoginTextField.swift */; };
 		49B5F7B01DF4C2770016CE6D /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7AF1DF4C2770016CE6D /* PasswordResetViewController.swift */; };
 		49B5F7B21DF4C3520016CE6D /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7B11DF4C3520016CE6D /* AccountCreationViewController.swift */; };
@@ -42,6 +44,8 @@
 		497577081DF5EFBE00B68C7B /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardsTableViewController.swift; path = Cards/CardsTableViewController.swift; sourceTree = "<group>"; };
 		4975770B1DF5F32F00B68C7B /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewCell.swift; path = Cards/CardTableViewCell.swift; sourceTree = "<group>"; };
 		49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeneficiaryCollectionViewCell.swift; path = Transfer/BeneficiaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		49A2672A1DF6EEAA002F397C /* DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DismissKeyboard.swift; path = Gestures/DismissKeyboard.swift; sourceTree = "<group>"; };
+		49A2672C1DF6F580002F397C /* TransferCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransferCompletedViewController.swift; path = Transfer/TransferCompletedViewController.swift; sourceTree = "<group>"; };
 		49B5F7AC1DF4BF420016CE6D /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTextField.swift; path = Fields/LoginTextField.swift; sourceTree = "<group>"; };
 		49B5F7AF1DF4C2770016CE6D /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetViewController.swift; path = Account/PasswordResetViewController.swift; sourceTree = "<group>"; };
 		49B5F7B11DF4C3520016CE6D /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountCreationViewController.swift; path = Account/AccountCreationViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				492C23161DF55EC100255BA8 /* TransferStepTwoViewController.swift */,
 				492C23181DF55ED000255BA8 /* TransferStepThreeViewController.swift */,
 				49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */,
+				49A2672C1DF6F580002F397C /* TransferCompletedViewController.swift */,
 			);
 			name = Transfer;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 		493541EC1DF484A0006E4249 /* MonPay */ = {
 			isa = PBXGroup;
 			children = (
+				49A267271DF6EE73002F397C /* Gestures */,
 				49B5F7AE1DF4C0060016CE6D /* Fields */,
 				492C231B1DF55F3600255BA8 /* Controllers */,
 				493541ED1DF484A0006E4249 /* AppDelegate.swift */,
@@ -137,6 +143,14 @@
 				49E3EA4E1DF603CB009C75EC /* AddCardViewController.swift */,
 			);
 			name = Cards;
+			sourceTree = "<group>";
+		};
+		49A267271DF6EE73002F397C /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				49A2672A1DF6EEAA002F397C /* DismissKeyboard.swift */,
+			);
+			name = Gestures;
 			sourceTree = "<group>";
 		};
 		49B5F7AE1DF4C0060016CE6D /* Fields */ = {
@@ -308,10 +322,12 @@
 				49C7DD901DF576D600DA1F6E /* HistoryTableViewController.swift in Sources */,
 				49B5F7B21DF4C3520016CE6D /* AccountCreationViewController.swift in Sources */,
 				49B5F7B01DF4C2770016CE6D /* PasswordResetViewController.swift in Sources */,
+				49A2672D1DF6F580002F397C /* TransferCompletedViewController.swift in Sources */,
 				49B5F7AD1DF4BF420016CE6D /* LoginTextField.swift in Sources */,
 				4975770C1DF5F32F00B68C7B /* CardTableViewCell.swift in Sources */,
 				497577091DF5EFBE00B68C7B /* CardsTableViewController.swift in Sources */,
 				49C7DD921DF57B2900DA1F6E /* HistoryTableViewCell.swift in Sources */,
+				49A2672B1DF6EEAA002F397C /* DismissKeyboard.swift in Sources */,
 				492C23191DF55ED000255BA8 /* TransferStepThreeViewController.swift in Sources */,
 				493541EE1DF484A0006E4249 /* AppDelegate.swift in Sources */,
 			);
@@ -357,6 +373,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -406,6 +423,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -434,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05BCD9FF7A4338F2F19048AB /* Pods-MonPay.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TZ5UX6U2K;
 				INFOPLIST_FILE = MonPay/Info.plist;
@@ -448,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EED1DB52378EDDE6919E7755 /* Pods-MonPay.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TZ5UX6U2K;
 				INFOPLIST_FILE = MonPay/Info.plist;

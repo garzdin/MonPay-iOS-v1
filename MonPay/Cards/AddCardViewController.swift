@@ -33,6 +33,7 @@ class AddCardViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dismissKeyboardWhenViewTapped()
         let continueButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(cancelAddCard(sender:)))
         self.navigationItem.setRightBarButton(continueButton, animated: true)
     }

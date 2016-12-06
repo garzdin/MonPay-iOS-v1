@@ -232,6 +232,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="eJp-kv-Ebp"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzn-5Z-NSh">
                                 <rect key="frame" x="27" y="216" width="44" height="15"/>
@@ -272,10 +275,15 @@
                     <navigationItem key="navigationItem" title="Transfer" id="06Q-3X-1Cf">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="WSw-MF-Cx2">
                             <connections>
-                                <segue destination="Inl-Vs-lEP" kind="show" identifier="transferStepTwo" id="KkS-tE-W4p"/>
+                                <action selector="goToStepTwo:" destination="9pv-A4-QxB" id="Ucl-AX-GHh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="amountField" destination="acI-M3-Yzq" id="8T0-Zr-u0X"/>
+                        <outlet property="feesLabel" destination="Rxe-fJ-CtO" id="P6s-EF-WpW"/>
+                        <segue destination="Inl-Vs-lEP" kind="show" identifier="transferStepTwo" id="KbC-bb-Pkh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -1010,7 +1018,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="Inl-Vs-lEP" id="f31-4L-l1T"/>
                                 </connections>
@@ -1141,7 +1149,8 @@ or choose from the recent beneficiaries below</string>
                     <connections>
                         <outlet property="beneficiariesCollectionView" destination="p1g-Tf-Tc9" id="qr4-ne-7S9"/>
                         <outlet property="beneficiarySearchField" destination="i7k-G0-920" id="tLK-sN-kS9"/>
-                        <segue destination="xfE-rQ-cTM" kind="show" identifier="transferStepThree" id="eOg-SY-5Xi"/>
+                        <outlet property="recenBeneficiariesLabel" destination="M2o-sJ-kpE" id="p87-dm-9a8"/>
+                        <segue destination="xfE-rQ-cTM" kind="show" identifier="transferStepThree" id="Jie-he-eeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhR-re-ZWX" sceneMemberID="firstResponder"/>
@@ -1185,23 +1194,138 @@ or choose from the recent beneficiaries below</string>
                                     <constraint firstAttribute="height" constant="47" id="foB-UA-vVm"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="flN-ix-ZZL">
+                                <rect key="frame" x="182" y="171" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Qui-Ci-Njr"/>
+                                    <constraint firstAttribute="width" secondItem="flN-ix-ZZL" secondAttribute="height" multiplier="1:1" id="SDW-96-6Lh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6g-2X-p7V">
+                                <rect key="frame" x="42" y="223" width="330" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2V-3x-Auu">
+                                <rect key="frame" x="42" y="268" width="330" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <color key="textColor" red="0.28235294119999998" green="0.81176470590000005" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffu-bV-hpc">
+                                <rect key="frame" x="42" y="320" width="330" height="54"/>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.81176470590000005" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="2HC-OX-RSQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Transfer">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="transferAction:" destination="xfE-rQ-cTM" eventType="touchUpInside" id="ag3-9a-0Cw"/>
+                                    <segue destination="ZvA-Gu-CUq" kind="show" identifier="transferComplete" id="AyN-X3-OyC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.17254901959999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="flN-ix-ZZL" firstAttribute="top" secondItem="cck-2C-ZOF" secondAttribute="bottom" constant="30" id="2Rc-8b-abN"/>
+                            <constraint firstItem="e2V-3x-Auu" firstAttribute="leading" secondItem="h79-ZZ-mAs" secondAttribute="leadingMargin" constant="22" id="5rS-Ly-cx2"/>
+                            <constraint firstItem="flN-ix-ZZL" firstAttribute="centerX" secondItem="h79-ZZ-mAs" secondAttribute="centerX" id="8CV-Am-euC"/>
+                            <constraint firstItem="Ffu-bV-hpc" firstAttribute="leading" secondItem="h79-ZZ-mAs" secondAttribute="leadingMargin" constant="22" id="CjQ-OP-WtN"/>
+                            <constraint firstItem="Ffu-bV-hpc" firstAttribute="top" secondItem="e2V-3x-Auu" secondAttribute="bottom" constant="30" id="H07-PJ-X1S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h6g-2X-p7V" secondAttribute="trailing" constant="22" id="Hmk-Pc-JBd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e2V-3x-Auu" secondAttribute="trailing" constant="22" id="Q7Y-Ch-mJO"/>
+                            <constraint firstItem="e2V-3x-Auu" firstAttribute="top" secondItem="h6g-2X-p7V" secondAttribute="bottom" constant="30" id="Qe4-Zo-pFI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ffu-bV-hpc" secondAttribute="trailing" constant="22" id="X1h-pY-c77"/>
                             <constraint firstItem="cck-2C-ZOF" firstAttribute="leading" secondItem="h79-ZZ-mAs" secondAttribute="leading" constant="22" id="kzW-YC-NOX"/>
+                            <constraint firstItem="h6g-2X-p7V" firstAttribute="top" secondItem="flN-ix-ZZL" secondAttribute="bottom" constant="2" id="lbS-40-dgC"/>
+                            <constraint firstItem="h6g-2X-p7V" firstAttribute="leading" secondItem="h79-ZZ-mAs" secondAttribute="leadingMargin" constant="22" id="nzw-Kz-UJl"/>
                             <constraint firstAttribute="trailing" secondItem="cck-2C-ZOF" secondAttribute="trailing" constant="22" id="pci-xX-4pZ"/>
                             <constraint firstItem="cck-2C-ZOF" firstAttribute="top" secondItem="qEC-tu-DXL" secondAttribute="bottom" constant="30" id="qq8-Xt-SKW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transfer" id="S3V-ZM-lql"/>
                     <connections>
+                        <outlet property="beneficiaryAmount" destination="e2V-3x-Auu" id="Msb-t4-xDM"/>
+                        <outlet property="beneficiaryProfileImage" destination="flN-ix-ZZL" id="QdS-HO-RK6"/>
+                        <outlet property="beneficiaryProfileName" destination="h6g-2X-p7V" id="8Ss-qX-kcr"/>
                         <segue destination="a3d-Kx-ScN" kind="unwind" identifier="unwindFromStepThree" unwindAction="unwindFromStepThreeCancelWithSegue:" id="0ll-dH-SF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bp4-8T-Wlv" sceneMemberID="firstResponder"/>
                 <exit id="a3d-Kx-ScN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="2093"/>
+            <point key="canvasLocation" x="2018.840579710145" y="2092.663043478261"/>
+        </scene>
+        <!--Transfer Completed View Controller-->
+        <scene sceneID="psY-xw-Z1y">
+            <objects>
+                <viewController id="ZvA-Gu-CUq" customClass="TransferCompletedViewController" customModule="MonPay" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zxy-pz-xSc"/>
+                        <viewControllerLayoutGuide type="bottom" id="cV6-dq-JCh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e05-5e-JKc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Py-6KW">
+                                <rect key="frame" x="182" y="139" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="AVi-Py-6KW" secondAttribute="height" multiplier="1:1" id="aCd-Qj-0Se"/>
+                                    <constraint firstAttribute="width" constant="50" id="m7V-f4-S38"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVI-xK-sYW">
+                                <rect key="frame" x="191" y="191" width="33" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfL-Ou-4WU">
+                                <rect key="frame" x="176" y="236" width="63" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <color key="textColor" red="0.28235294119999998" green="0.81176470590000005" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've successfully transfered money to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAH-nb-8LT">
+                                <rect key="frame" x="94" y="94" width="226" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215686274508" green="0.17254901960784313" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AVi-Py-6KW" firstAttribute="centerX" secondItem="e05-5e-JKc" secondAttribute="centerX" id="BrK-kU-pJm"/>
+                            <constraint firstItem="AVi-Py-6KW" firstAttribute="top" secondItem="KAH-nb-8LT" secondAttribute="bottom" constant="30" id="PaQ-uV-QXs"/>
+                            <constraint firstItem="sVI-xK-sYW" firstAttribute="top" secondItem="AVi-Py-6KW" secondAttribute="bottom" constant="2" id="Rvl-F8-02A"/>
+                            <constraint firstItem="yfL-Ou-4WU" firstAttribute="top" secondItem="sVI-xK-sYW" secondAttribute="bottom" constant="30" id="SBW-Iy-ZzU"/>
+                            <constraint firstItem="yfL-Ou-4WU" firstAttribute="centerX" secondItem="e05-5e-JKc" secondAttribute="centerX" id="W8P-i0-PGb"/>
+                            <constraint firstItem="KAH-nb-8LT" firstAttribute="centerX" secondItem="e05-5e-JKc" secondAttribute="centerX" id="pZP-5K-bcs"/>
+                            <constraint firstItem="sVI-xK-sYW" firstAttribute="centerX" secondItem="e05-5e-JKc" secondAttribute="centerX" id="qTN-eb-I5U"/>
+                            <constraint firstItem="KAH-nb-8LT" firstAttribute="top" secondItem="zxy-pz-xSc" secondAttribute="bottom" constant="30" id="rpX-cv-c5N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beneficiaryAmountLabel" destination="yfL-Ou-4WU" id="DKd-Ay-Szy"/>
+                        <outlet property="beneficiaryNameLabel" destination="sVI-xK-sYW" id="Egr-fk-yc0"/>
+                        <outlet property="beneficiaryProfileImage" destination="AVi-Py-6KW" id="P8C-n6-fIc"/>
+                        <segue destination="W92-DT-uQh" kind="unwind" identifier="unwindFromTransferCompleted" unwindAction="unwindFromStepThreeCancelWithSegue:" id="FAn-fI-1rC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8WN-ov-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W92-DT-uQh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="2855"/>
         </scene>
         <!--Cards-->
         <scene sceneID="Nsc-k3-dQs">

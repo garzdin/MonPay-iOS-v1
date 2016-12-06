@@ -8,17 +8,36 @@
 
 import UIKit
 
-class TransferStepOneViewController: UIViewController {
+class TransferStepOneViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var amountField: LoginTextField!
+    @IBOutlet var feesLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dismissKeyboardWhenViewTapped()
         self.title = "Transfer"
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.feesLabel.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindFromStepThreeCancel(segue: UIStoryboardSegue) {}
+    @IBAction func unwindFromStepThreeCancel(segue: UIStoryboardSegue) {
+        self.amountField.text = ""
+    }
+    
+    @IBAction func goToStepTwo(_ sender: UIBarButtonItem) {
+        self.amountField.resignFirstResponder()
+        self.performSegue(withIdentifier: "transferStepTwo", sender: sender)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        self.navigationItem.rightBarButtonItem?.isEnabled = !newText.isEmpty
+        self.feesLabel.isHidden = newText.isEmpty
+        return true
+    }
 }
