@@ -16,6 +16,7 @@
 		493541FA1DF484A0006E4249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493541F81DF484A0006E4249 /* LaunchScreen.storyboard */; };
 		497577091DF5EFBE00B68C7B /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497577081DF5EFBE00B68C7B /* CardsTableViewController.swift */; };
 		4975770C1DF5F32F00B68C7B /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975770B1DF5F32F00B68C7B /* CardTableViewCell.swift */; };
+		49A267261DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */; };
 		49B5F7AD1DF4BF420016CE6D /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7AC1DF4BF420016CE6D /* LoginTextField.swift */; };
 		49B5F7B01DF4C2770016CE6D /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7AF1DF4C2770016CE6D /* PasswordResetViewController.swift */; };
 		49B5F7B21DF4C3520016CE6D /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5F7B11DF4C3520016CE6D /* AccountCreationViewController.swift */; };
@@ -40,6 +41,7 @@
 		493541FB1DF484A0006E4249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		497577081DF5EFBE00B68C7B /* CardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardsTableViewController.swift; path = Cards/CardsTableViewController.swift; sourceTree = "<group>"; };
 		4975770B1DF5F32F00B68C7B /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewCell.swift; path = Cards/CardTableViewCell.swift; sourceTree = "<group>"; };
+		49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeneficiaryCollectionViewCell.swift; path = Transfer/BeneficiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		49B5F7AC1DF4BF420016CE6D /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginTextField.swift; path = Fields/LoginTextField.swift; sourceTree = "<group>"; };
 		49B5F7AF1DF4C2770016CE6D /* PasswordResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordResetViewController.swift; path = Account/PasswordResetViewController.swift; sourceTree = "<group>"; };
 		49B5F7B11DF4C3520016CE6D /* AccountCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountCreationViewController.swift; path = Account/AccountCreationViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				492C23141DF55EAA00255BA8 /* TransferStepOneViewController.swift */,
 				492C23161DF55EC100255BA8 /* TransferStepTwoViewController.swift */,
 				492C23181DF55ED000255BA8 /* TransferStepThreeViewController.swift */,
+				49A267251DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift */,
 			);
 			name = Transfer;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				492C23171DF55EC100255BA8 /* TransferStepTwoViewController.swift in Sources */,
 				49B5F7B71DF4D1B70016CE6D /* AccountViewController.swift in Sources */,
 				492C23151DF55EAA00255BA8 /* TransferStepOneViewController.swift in Sources */,
+				49A267261DF6BFD0002F397C /* BeneficiaryCollectionViewCell.swift in Sources */,
 				49C7DD901DF576D600DA1F6E /* HistoryTableViewController.swift in Sources */,
 				49B5F7B21DF4C3520016CE6D /* AccountCreationViewController.swift in Sources */,
 				49B5F7B01DF4C2770016CE6D /* PasswordResetViewController.swift in Sources */,
