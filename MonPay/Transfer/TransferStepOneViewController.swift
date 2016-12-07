@@ -8,10 +8,13 @@
 
 import UIKit
 
-class TransferStepOneViewController: UIViewController, UITextFieldDelegate {
+class TransferStepOneViewController: UIViewController, UITextFieldDelegate, ChooseCardDelegate {
 
     @IBOutlet var amountField: LoginTextField!
     @IBOutlet var feesLabel: UILabel!
+    @IBOutlet var chosenCardImageView: UIImageView!
+    @IBOutlet var chosenCardNumberLabel: UILabel!
+    @IBOutlet var chosenCardExpirationDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,9 @@ class TransferStepOneViewController: UIViewController, UITextFieldDelegate {
         self.title = "Transfer"
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         self.feesLabel.isHidden = true
+        self.chosenCardImageView.image = UIImage(named: "Visa")
+        self.chosenCardNumberLabel.text = "**** **** **** 1234"
+        self.chosenCardExpirationDateLabel.text = "07/2017"
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,5 +45,21 @@ class TransferStepOneViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.rightBarButtonItem?.isEnabled = !newText.isEmpty
         self.feesLabel.isHidden = newText.isEmpty
         return true
+    }
+    
+    @IBAction func chooseCardAction(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "chooseCardNavigationController") as! UINavigationController
+        let chooseCardTableView = controller.topViewController as! ChooseCardTableViewController
+        chooseCardTableView.delegate = self
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func didChooseCard(cell: ChooseCardTableViewCell) {
+        DispatchQueue.main.async {
+            self.chosenCardImageView.image = cell.cardLogo.image
+            self.chosenCardNumberLabel.text = cell.cardNumber.text
+            self.chosenCardExpirationDateLabel.text = cell.cardExpirationDate.text
+        }
     }
 }
