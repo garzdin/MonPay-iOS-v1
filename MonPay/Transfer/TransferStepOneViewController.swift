@@ -33,6 +33,8 @@ class TransferStepOneViewController: UIViewController, UITextFieldDelegate, Choo
     
     @IBAction func unwindFromStepThreeCancel(segue: UIStoryboardSegue) {
         self.amountField.text = ""
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
+        self.feesLabel.isHidden = true
     }
     
     @IBAction func goToStepTwo(_ sender: UIBarButtonItem) {
