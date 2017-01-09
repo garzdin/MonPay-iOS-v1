@@ -15,12 +15,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             usernameField.delegate = self
         }
     }
+    
     @IBOutlet var passwordField: LoginTextField! {
         didSet {
             passwordField.delegate = self
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
