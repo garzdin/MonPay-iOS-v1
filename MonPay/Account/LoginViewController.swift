@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    let requestFactory: RequestFactory = RequestFactory()
 
     @IBOutlet var usernameField: LoginTextField! {
         didSet {
@@ -31,11 +33,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "mainTabBarViewController") as! UITabBarController
-        self.present(controller, animated: true, completion: {
-            self.usernameField.text = ""
-            self.passwordField.text = ""
+        requestFactory.login(email: self.usernameField.text!, password: self.passwordField.text!, completion: { success in
+            if success == true {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "mainTabBarViewController") as! UITabBarController
+                self.present(controller, animated: true, completion: {
+                    self.usernameField.text = ""
+                    self.passwordField.text = ""
+                })
+            }
         })
     }
     
