@@ -1,15 +1,21 @@
 PODS:
+  - Alamofire (4.0.1)
+  - KeychainSwift (7.0.0)
   - Money (2.0.0):
     - ValueCoding (~> 2)
   - ValueCoding (2.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - KeychainSwift (~> 7.0)
   - Money (~> 2)
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  KeychainSwift: b6947435dd78cc442c64a84ae648dd0e871cf448
   Money: b2fdc19e2b73e4aeba55c398a805b6c61878bbfc
   ValueCoding: f18cd2f0c941c43e06669717ca25aeed02d702a9
 
-PODFILE CHECKSUM: 4b6eb35f01a6869ab520ee9093bed17136359be0
+PODFILE CHECKSUM: 9180f2c796043b1fc3363947e450ca98c4ebb8e2
 
 COCOAPODS: 1.1.1

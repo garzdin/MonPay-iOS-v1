@@ -4,4 +4,6 @@
 target 'MonPay' do
   use_frameworks!
   pod 'Money', '~> 2'
+  pod 'Alamofire', '~> 4.0'
+  pod 'KeychainSwift', '~> 7.0'
 end
