@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="tof-eT-wVK">
             <objects>
-                <viewController id="MTx-R8-Uxp" customClass="LoginViewController" customModule="MonPay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="MTx-R8-Uxp" customClass="LoginViewController" customModule="MonPay" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lQH-sK-5Ed"/>
                         <viewControllerLayoutGuide type="bottom" id="32v-y4-1vD"/>

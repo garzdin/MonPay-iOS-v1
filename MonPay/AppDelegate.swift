@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let keychain: KeychainSwift = KeychainSwift(keyPrefix: "monPay_")
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if keychain.get("token") == nil {
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        } else {
+            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "mainTabBarViewController")
+        }
+        self.window?.makeKeyAndVisible()
         return true
     }
 
