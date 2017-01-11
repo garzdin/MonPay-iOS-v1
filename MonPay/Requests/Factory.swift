@@ -10,7 +10,7 @@ import Alamofire
 import KeychainSwift
 
 class RequestFactory {
-    let endpoint: URLConvertible = "http://127.0.0.1:8080/api/"
+    let endpoint: URLConvertible = "https://monpay.herokuapp.com/api/"
     let version: Int = 1
     let keychain: KeychainSwift = KeychainSwift(keyPrefix: "monPay_")
     
