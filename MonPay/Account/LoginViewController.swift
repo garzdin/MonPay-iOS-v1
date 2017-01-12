@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func loginAction(_ sender: UIButton) {
+    func login() {
         self.emailFieldErrorLabel.isHidden = true
         self.passwordFieldErrorLabel.isHidden = true
         if usernameField.text == "" {
@@ -69,10 +69,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        self.login()
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if (textField == usernameField) {
+        switch textField {
+        case usernameField:
             passwordField.becomeFirstResponder()
+            break
+        case passwordField:
+            self.login()
+            break
+        default:
+            textField.resignFirstResponder()
+            break
         }
         return false
     }

@@ -17,8 +17,9 @@ class RequestFactory {
             if let responseDict = response.result.value as? [String: Any] {
                 if let _ = responseDict["code"] as? Int {
                     completion(nil, responseDict)
+                } else {
+                    completion(responseDict, nil)
                 }
-                completion(responseDict, nil)
             }
         }
     }
@@ -47,6 +48,33 @@ class RequestFactory {
             }
             if let token = response?["token"] as? String {
                 Keychain.sharedInstace.set(token, forKey: "token")
+                completion(true, nil, nil)
+            }
+        }
+    }
+    
+    func register(email: String, password: String, completion: @escaping (_ success: Bool, _ emailFieldError: String?, _ passwordFieldError: String?) -> Void) {
+        let parameters: Parameters = [
+            "email": email,
+            "password": password
+        ]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        self.request(url: "account/create", method: .post, parameters: parameters, headers: headers) { response, error in
+            if error != nil {
+                if let errorCode = error?["code"] as? Int, let errorDescription = error?["description"] as? String {
+                    switch (errorCode) {
+                    case 1:
+                        completion(false, errorDescription, nil)
+                        break
+                    case 2:
+                        completion(false, nil, errorDescription)
+                        break
+                    default: break
+                    }
+                }
+            } else {
                 completion(true, nil, nil)
             }
         }
