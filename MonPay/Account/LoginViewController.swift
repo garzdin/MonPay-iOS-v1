@@ -79,6 +79,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             passwordField.becomeFirstResponder()
             break
         case passwordField:
+            textField.resignFirstResponder()
             self.login()
             break
         default:
