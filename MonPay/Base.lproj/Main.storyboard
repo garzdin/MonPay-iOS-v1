@@ -852,7 +852,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The easy way to transfer money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6m-iO-pa4">
-                                <rect key="frame" x="105.66666666666669" y="93" width="203" height="17"/>
+                                <rect key="frame" x="106" y="93" width="203" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -885,6 +885,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="resetAction:" destination="JcY-0l-C4r" eventType="touchUpInside" id="Ryc-AX-kLm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6Z-ed-66b">
                                 <rect key="frame" x="380" y="40" width="14" height="14"/>
@@ -897,17 +900,34 @@
                                     <action selector="cancelAction:" destination="JcY-0l-C4r" eventType="touchUpInside" id="DT3-6h-jcs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a11-bR-9aL">
+                                <rect key="frame" x="262.33333333333326" y="140" width="109.66666666666669" height="14.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.17254901959999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your mailbox" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cK-Uq-DRE">
+                                <rect key="frame" x="151.66666666666663" y="228.33333333333334" width="111.33333333333337" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.20860926420000001" green="1" blue="0.2249963498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.17254901959999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8cK-Uq-DRE" firstAttribute="centerX" secondItem="Hld-ua-CmS" secondAttribute="centerX" id="4Gc-EM-mM5"/>
                             <constraint firstItem="ptZ-qD-JNr" firstAttribute="top" secondItem="b6m-iO-pa4" secondAttribute="bottom" constant="30" id="8jh-eO-FcU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WlW-gz-IgZ" secondAttribute="trailing" constant="22" id="9ZQ-F9-ff7"/>
                             <constraint firstItem="WlW-gz-IgZ" firstAttribute="leading" secondItem="Hld-ua-CmS" secondAttribute="leadingMargin" constant="22" id="CxW-Wg-wRd"/>
                             <constraint firstItem="2Nt-Tz-xih" firstAttribute="centerX" secondItem="Hld-ua-CmS" secondAttribute="centerX" id="Ebg-MV-tyI"/>
+                            <constraint firstItem="WlW-gz-IgZ" firstAttribute="top" secondItem="8cK-Uq-DRE" secondAttribute="bottom" constant="8" id="HKH-cb-8Xn"/>
                             <constraint firstItem="ptZ-qD-JNr" firstAttribute="leading" secondItem="Hld-ua-CmS" secondAttribute="leadingMargin" constant="27" id="HO5-XA-PUM"/>
                             <constraint firstItem="x6Z-ed-66b" firstAttribute="top" secondItem="WXc-vc-VL9" secondAttribute="bottom" constant="20" id="N5u-sO-TgM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a11-bR-9aL" secondAttribute="trailing" constant="22" id="QA0-ad-boQ"/>
+                            <constraint firstItem="8cK-Uq-DRE" firstAttribute="top" secondItem="tx4-aU-XeQ" secondAttribute="bottom" constant="8" id="SLg-fu-dIr"/>
                             <constraint firstItem="tx4-aU-XeQ" firstAttribute="leading" secondItem="Hld-ua-CmS" secondAttribute="leadingMargin" constant="22" id="UEo-Hl-hXX"/>
                             <constraint firstAttribute="trailing" secondItem="x6Z-ed-66b" secondAttribute="trailing" constant="20" id="ZUh-hG-8Qo"/>
+                            <constraint firstItem="tx4-aU-XeQ" firstAttribute="top" secondItem="a11-bR-9aL" secondAttribute="bottom" constant="6" id="bTD-Y9-HsI"/>
                             <constraint firstItem="tx4-aU-XeQ" firstAttribute="top" secondItem="ptZ-qD-JNr" secondAttribute="bottom" constant="6" id="cIe-8w-oHb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tx4-aU-XeQ" secondAttribute="trailing" constant="22" id="eeg-T7-bVG"/>
                             <constraint firstItem="WlW-gz-IgZ" firstAttribute="top" secondItem="tx4-aU-XeQ" secondAttribute="bottom" constant="30" id="jJO-ip-2RC"/>
@@ -916,6 +936,11 @@
                             <constraint firstItem="b6m-iO-pa4" firstAttribute="centerX" secondItem="Hld-ua-CmS" secondAttribute="centerX" id="xnx-0b-WXq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="tx4-aU-XeQ" id="uuH-xT-I2o"/>
+                        <outlet property="emailFieldError" destination="a11-bR-9aL" id="UQW-Ci-TqJ"/>
+                        <outlet property="successMessage" destination="8cK-Uq-DRE" id="fqK-fe-cI5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgT-ZL-5uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -79,4 +79,27 @@ class RequestFactory {
             }
         }
     }
+    
+    func reset(email: String, completion: @escaping (_ success: Bool, _ emailFieldError: String?) -> Void) {
+        let parameters: Parameters = [
+            "email": email
+        ]
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json"
+        ]
+        self.request(url: "account/reset", method: .post, parameters: parameters, headers: headers) { response, error in
+            if error != nil {
+                if let errorCode = error?["code"] as? Int, let errorDescription = error?["description"] as? String {
+                    switch (errorCode) {
+                    case 1:
+                        completion(false, errorDescription)
+                        break
+                    default: break
+                    }
+                }
+            } else {
+                completion(true, nil)
+            }
+        }
+    }
 }
