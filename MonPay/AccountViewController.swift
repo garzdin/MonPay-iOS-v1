@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import KeychainSwift
 
 class AccountViewController: UIViewController {
-    
-    let keychain: KeychainSwift = KeychainSwift(keyPrefix: "monPay_")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +21,13 @@ class AccountViewController: UIViewController {
     @IBAction func logoutAction(_ sender: UIBarButtonItem) {
         if self.presentingViewController != nil {
             self.dismiss(animated: true, completion: {
-                self.keychain.delete("token")
+                Keychain.sharedInstace.delete("token")
             })
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.present(controller, animated: true, completion: {
-                self.keychain.delete("token")
+                Keychain.sharedInstace.delete("token")
             })
         }
     }

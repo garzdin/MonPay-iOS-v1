@@ -9,8 +9,6 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    
-    let requestFactory: RequestFactory = RequestFactory()
 
     @IBOutlet var usernameField: LoginTextField! {
         didSet {
@@ -24,8 +22,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBOutlet var emailFieldErrorLabel: UILabel!
+    @IBOutlet var passwordFieldErrorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.emailFieldErrorLabel.isHidden = true
+        self.passwordFieldErrorLabel.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +36,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(_ sender: UIButton) {
-        requestFactory.login(email: self.usernameField.text!, password: self.passwordField.text!, completion: { success in
+        self.emailFieldErrorLabel.isHidden = true
+        self.passwordFieldErrorLabel.isHidden = true
+        if usernameField.text == "" {
+            self.emailFieldErrorLabel.isHidden = false
+            self.emailFieldErrorLabel.text = "Username required"
+            return
+        }
+        if passwordField.text == "" {
+            self.passwordFieldErrorLabel.isHidden = false
+            self.passwordFieldErrorLabel.text = "Password required"
+            return
+        }
+        RequestFactory.sharedInstance.login(email: self.usernameField.text!, password: self.passwordField.text!, completion: { success, emailFieldError, passwordFieldError in
             if success == true {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "mainTabBarViewController") as! UITabBarController
@@ -41,6 +56,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.usernameField.text = ""
                     self.passwordField.text = ""
                 })
+            } else {
+                if emailFieldError != nil {
+                    self.emailFieldErrorLabel.isHidden = false
+                    self.emailFieldErrorLabel.text = emailFieldError
+                }
+                if passwordFieldError != nil {
+                    self.passwordFieldErrorLabel.isHidden = false
+                    self.passwordFieldErrorLabel.text = passwordFieldError
+                }
             }
         })
     }
